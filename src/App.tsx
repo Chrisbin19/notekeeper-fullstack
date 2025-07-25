@@ -52,7 +52,11 @@ function App(){
     setTitle("");
     setContent("");
   }
-
+  const deleteNote=(event:React.MouseEvent,noteId:number)=>{
+    event.stopPropagation(); // Prevent the click from triggering the note selection
+    const updatedNotes = notes.filter((note) => note.id !== noteId);
+    setNotes(updatedNotes);
+  };
   return(
   <div className='app-container'>
     <form onSubmit={
@@ -84,7 +88,7 @@ function App(){
       {notes.map((note)=>(
            <div key={note.id} className='notes-item' onClick={()=>handleNoteClick(note)}>
         <div className='notes-header'>
-          <button>
+          <button onClick={(event)=>deleteNote(event,note.id)}>
             X
           </button>
           </div>
