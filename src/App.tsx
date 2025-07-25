@@ -8,37 +8,7 @@ function App(){
     content:string,
   };
   
-  const[notes,setNotes]=useState<Note[]>([
-    {
-      id:1,
-      title:"Note 1",
-      content:"This is the first note",
-    },
-    {
-      id:2,
-      title:"Note 2",
-      content:"This is the second note",
-    },
-    {
-      id:3,
-      title:"Note 3",
-      content:"This is the third note",
-    },
-    {
-      id:4,
-      title:"Note 4",
-      content:"This is the fourth note", 
-    },
-    {
-      id:5,
-      title:"Note 5",
-      content:"This is the fifth note",
-    },
-    {id:6,
-      title:"Note 6",
-      content:"This is the sixth note",
-    },
-  ]);
+  const[notes,setNotes]=useState<Note[]>([]);
   
   const [title,setTitle]=useState("");
   const [content,setContent]=useState("");
