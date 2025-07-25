@@ -47,7 +47,8 @@ function App(){
         value={title}
         onChange={(e)=>setTitle(e.target.value)}
       placeholder='Title' required/>
-      <input 
+      <textarea 
+        rows={10}
         value={content}
         onChange={(e)=>setContent(e.target.value) }
       placeholder='Content' required/>
