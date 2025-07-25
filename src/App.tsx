@@ -14,8 +14,6 @@ function App(){
   const [content,setContent]=useState("");
   const handleAddNote=(e:React.FormEvent)=>{
     e.preventDefault();
-    console.log("Title:", title);
-    console.log("Content:", content);
     setNotes([newNote,...notes]);
     setTitle("");
     setContent(""); // Add the new note to the beginning of the notes array
@@ -24,6 +22,12 @@ function App(){
     id:notes.length+1,
     title: title,
     content: content,
+  }
+  const [selectedNote,setSelectedNode]=useState<Note | null >(null);
+  const handleNoteClick=(note:Note)=>{
+    setSelectedNode(note);
+    setTitle(note.title);
+    setContent(note.content);
   }
   return(
   <div className='app-container'>
@@ -41,7 +45,7 @@ function App(){
     </form>
     <div className='notes-grid'>
       {notes.map((note)=>(
-           <div key={note.id} className='notes-item'>
+           <div key={note.id} className='notes-item' onClick={()=>handleNoteClick(note)}>
         <div className='notes-header'>
           <button>
             X
