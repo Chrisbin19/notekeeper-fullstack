@@ -7,6 +7,7 @@ function App(){
     title:string,
     content:string,
   };
+  
   const[notes,setNotes]=useState<Note[]>([
     {
       id:1,
@@ -38,12 +39,21 @@ function App(){
       content:"This is the sixth note",
     },
   ]);
+  
   const [title,setTitle]=useState("");
   const [content,setContent]=useState("");
   const handleAddNote=(e:React.FormEvent)=>{
     e.preventDefault();
     console.log("Title:", title);
     console.log("Content:", content);
+    setNotes([newNote,...notes]);
+    setTitle("");
+    setContent(""); // Add the new note to the beginning of the notes array
+  }
+  const newNote:Note={
+    id:notes.length+1,
+    title: title,
+    content: content,
   }
   return(
   <div className='app-container'>
