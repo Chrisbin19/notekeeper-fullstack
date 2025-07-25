@@ -46,18 +46,22 @@ function App(){
       <button type='submit'>Add Note</button>
     </form>
     <div className='notes-grid'>
+      {notes.map((note)=>(
 
-      <div className='notes-item'>
+     
+      <div key={note.id} className='notes-item'>
         <div className='notes-header'>
           <button>
             X
           </button>
           </div>
-          <h2>Note Title</h2>
-          <p>Note content</p>
+          <h2>{note.title}</h2>
+          <p>{note.content}</p>
 
       </div>
+        ))}
     </div>
+   
   </div>
   )
 }
