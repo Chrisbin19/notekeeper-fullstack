@@ -40,9 +40,14 @@ function App(){
   ]);
   const [title,setTitle]=useState("");
   const [content,setContent]=useState("");
+  const handleAddNote=(e:React.FormEvent)=>{
+    e.preventDefault();
+    console.log("Title:", title);
+    console.log("Content:", content);
+  }
   return(
   <div className='app-container'>
-    <form className='note-form'>
+    <form onSubmit={handleAddNote} className='note-form'>
       <input 
         value={title}
         onChange={(e)=>setTitle(e.target.value)}
