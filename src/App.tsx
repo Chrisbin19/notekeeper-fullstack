@@ -38,18 +38,24 @@ function App(){
       content:"This is the sixth note",
     },
   ]);
+  const [title,setTitle]=useState("");
+  const [content,setContent]=useState("");
   return(
   <div className='app-container'>
     <form className='note-form'>
-      <input placeholder='Title' required/>
-      <input placeholder='Content' required/>
+      <input 
+        value={title}
+        onChange={(e)=>setTitle(e.target.value)}
+      placeholder='Title' required/>
+      <input 
+        value={content}
+        onChange={(e)=>setContent(e.target.value) }
+      placeholder='Content' required/>
       <button type='submit'>Add Note</button>
     </form>
     <div className='notes-grid'>
       {notes.map((note)=>(
-
-     
-      <div key={note.id} className='notes-item'>
+           <div key={note.id} className='notes-item'>
         <div className='notes-header'>
           <button>
             X
